@@ -1,12 +1,13 @@
+import { Outlet } from "react-router-dom";
 import DemoComponent from "./DemoComponent";
 
-
 function App() {
-  return (
-    <div>
-   <DemoComponent />
-    </div>
-  );
+    return (
+        <div>
+            {/* <DemoComponent /> */}
+            <Outlet />
+        </div>
+    );
 }
 
 export default App;
