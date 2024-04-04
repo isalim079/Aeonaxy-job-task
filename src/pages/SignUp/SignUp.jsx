@@ -5,10 +5,14 @@ const SignUp = () => {
         <div className="">
             <div className="grid grid-cols-2 gap-20 h-screen">
                 <div className="bg-[#F3D184]">
-                    <div className="flex flex-col justify-center items-center h-screen">
-                        <p className="text-4xl text-[#7c6735] font-bold">
+                    <div className="pl-16 pt-10">
+                    <p className="text-2xl  text-[#7c6735]">
                             Aeonaxy
                         </p>
+                        <p className="text-4xl text-[#7c6735] font-bold w-full max-w-[80%] mt-7 mb-10">Discover the world's top Designers & Creatives.</p>
+                    </div>
+                    <div className="flex flex-col justify-center items-center">
+                       
                         <img className="w-3/5" src={image} alt="" />
                     </div>
                 </div>
