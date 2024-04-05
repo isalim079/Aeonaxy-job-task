@@ -2,7 +2,7 @@
 
 import { BiSolidCameraPlus } from "react-icons/bi";
 
-const CreateProfile = () => {
+const CreateProfile = ({handleNext}) => {
     return (
         <div>
             <div className="flex justify-center items-center h-screen">
@@ -44,7 +44,7 @@ const CreateProfile = () => {
                         />
                     </div>
                     <div>
-                        <button className="bg-pink-600 py-2 rounded-md mt-10 text-sm text-white w-full max-w-[40%]" type="button">Next</button>
+                        <button onClick={handleNext} className="bg-pink-600 py-2 rounded-md mt-10 text-sm text-white w-full max-w-[40%]" type="button">Next</button>
                     </div>
                 </div>
             </div>

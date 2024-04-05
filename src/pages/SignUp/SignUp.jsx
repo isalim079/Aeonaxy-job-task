@@ -2,6 +2,7 @@
 import { useState } from "react";
 import image from "../../assets/signUp.png";
 import CreateProfile from "./CreateProfile";
+import BringsToAeonaxy from "./BringsToAeonaxy";
 
 const SignUp = () => {
     const steps = ["signUp", "createProfile", "bringsToAeonaxy", "verifyMail"];
@@ -32,26 +33,6 @@ const SignUp = () => {
                 : activeSteps + 1;
         setActiveSteps(newActiveStep);
     };
-
-    const handleBack = () => {
-        setActiveSteps((prevActiveStep) => prevActiveStep - 1);
-      };
-    
-      const handleStep = (step) => () => {
-        setActiveSteps(step);
-      };
-    
-      const handleComplete = () => {
-        const newCompleted = completed;
-        newCompleted[activeSteps] = true;
-        setCompleted(newCompleted);
-        handleNext();
-      };
-    
-      const handleReset = () => {
-        setActiveSteps(0);
-        setCompleted({});
-      };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -201,7 +182,10 @@ const SignUp = () => {
                             </div>
                             </div>}
 
-                            {activeSteps === 1 && <CreateProfile />}
+                            {activeSteps === 1 && <CreateProfile handleNext={handleNext} />}
+
+                            {activeSteps === 2 && <BringsToAeonaxy handleNext={handleNext} />}
+                            
 
                         </form>
                     </div>
