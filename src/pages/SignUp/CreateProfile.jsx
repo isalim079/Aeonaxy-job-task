@@ -2,20 +2,24 @@
 
 import { BiSolidCameraPlus } from "react-icons/bi";
 
-const CreateProfile = ({handleNext}) => {
+const CreateProfile = ({ handleNext }) => {
     return (
         <div>
             <div className="flex justify-center items-center h-screen">
                 <div>
                     <div>
-                        <h1 className="text-4xl font-semibold">Welcome! Let's create your profile</h1>
+                        <h1 className="text-4xl font-semibold">
+                            Welcome! Let's create your profile
+                        </h1>
                         <p className="text-gray-500 mt-4">
                             Let others get to know you better! You can do these
                             later
                         </p>
                     </div>
                     <div>
-                        <h3 className="text-xl font-bold mt-10 mb-4">Add an avatar</h3>
+                        <h3 className="text-xl font-bold mt-10 mb-4">
+                            Add an avatar
+                        </h3>
                         <div className="flex items-center space-x-10">
                             <div className="border-2 border-dashed border-gray-400 w-40 h-40 rounded-full flex justify-center items-center">
                                 <BiSolidCameraPlus className="text-4xl text-gray-500" />
@@ -34,7 +38,9 @@ const CreateProfile = ({handleNext}) => {
                         </div>
                     </div>
                     <div>
-                        <h3 className="mt-20 text-xl font-bold mb-2">Add your location</h3>
+                        <h3 className="mt-20 text-xl font-bold mb-2">
+                            Add your location
+                        </h3>
                         <input
                             type="text"
                             name="location"
@@ -44,7 +50,13 @@ const CreateProfile = ({handleNext}) => {
                         />
                     </div>
                     <div>
-                        <button onClick={handleNext} className="bg-pink-600 py-2 rounded-md mt-10 text-sm text-white w-full max-w-[40%]" type="button">Next</button>
+                        <button
+                            onClick={handleNext}
+                            className="bg-pink-600 py-2 rounded-md mt-10 text-sm text-white w-full max-w-[40%]"
+                            type="button"
+                        >
+                            Next
+                        </button>
                     </div>
                 </div>
             </div>
