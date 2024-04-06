@@ -1,8 +1,6 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import { useState } from "react";
 import image from "../../assets/signUp.png";
-// import CreateProfile from "./CreateProfile";
-// import BringsToAeonaxy from "./BringsToAeonaxy";
 import VerifyMail from "./VerifyMail";
 import hire from "../../assets/hire.png";
 import shareWork from "../../assets/shareWork.png";
@@ -90,18 +88,18 @@ const SignUp = () => {
         handleNext();
     };
 
-    // console.log(signUpData);
+    console.log(signUpData);
 
     return (
         <div className="">
             <div
                 className={`${
-                    activeSteps === 0 && "grid grid-cols-2 gap-20 h-screen"
+                    activeSteps === 0 && "grid md:grid-cols-2 md:gap-20 h-screen md:px-0 px-3"
                 }`}
             >
                 {/* sign up page right side */}
                 <div
-                    className={`bg-[#F3D184] ${activeSteps !== 0 && "hidden"}`}
+                    className={`bg-[#F3D184] md:block hidden ${activeSteps !== 0 && "hidden"}`}
                 >
                     <div className="pl-16 pt-10">
                         <p className="text-2xl  text-[#7c6735]">Aeonaxy</p>
@@ -114,14 +112,14 @@ const SignUp = () => {
                     </div>
                 </div>
                 <div className="">
-                    <div className={`pr-10 ${activeSteps !== 0 && "hidden"}`}>
+                    <div className={`md:pr-10 ${activeSteps !== 0 && "hidden"}`}>
                         <p className="mt-10 text-right mb-14">
                             Already a member?{" "}
                             <span className="text-blue-500 cursor-pointer">
                                 Sign In
                             </span>
                         </p>
-                        <p className="text-4xl font-semibold">
+                        <p className="text-2xl md:text-4xl font-semibold">
                             Sign up to Aeonaxy
                         </p>
                     </div>
@@ -130,10 +128,10 @@ const SignUp = () => {
                         {activeSteps === 0 && (
                             <form
                                 onSubmit={handleSubmit}
-                                className="w-full max-w-[65%]"
+                                className="w-full md:max-w-[65%]"
                             >
                                 {/* input fields */}
-                                <div className="grid grid-cols-2 gap-8 ">
+                                <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 ">
                                     <div>
                                         <label className="font-semibold">
                                             Name
@@ -160,7 +158,7 @@ const SignUp = () => {
                                         />
                                     </div>
 
-                                    <div className="col-span-2">
+                                    <div className="md:col-span-2">
                                         <label className="font-semibold">
                                             Email
                                         </label>
@@ -173,7 +171,7 @@ const SignUp = () => {
                                         />
                                     </div>
 
-                                    <div className="col-span-2">
+                                    <div className="md:col-span-2">
                                         <label className="font-semibold">
                                             Password
                                         </label>
@@ -211,7 +209,7 @@ const SignUp = () => {
                                 <div className="mt-4">
                                     <button
                                         type="submit"
-                                        className="w-full max-w-[50%] py-2 bg-pink-600 text-white rounded-md"
+                                        className="w-full md:text-base text-xs md:max-w-[50%] max-w-[40%] py-2 bg-pink-600 text-white rounded-md"
                                         // onClick={handleNext}
                                     >
                                         Create Account
