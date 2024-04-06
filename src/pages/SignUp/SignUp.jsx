@@ -302,28 +302,28 @@ const SignUp = () => {
 
                         {activeSteps === 2 && (
                             <form
-                                className="flex justify-center items-center my-10"
+                                className="flex justify-center items-center my-10 px-3 md:px-0"
                                 onSubmit={handleBrings}
                             >
                                 <div>
                                     <div className="flex flex-col justify-center items-center">
-                                        <h3 className="text-4xl font-semibold">
+                                        <h3 className="md:text-4xl text-2xl font-semibold">
                                             What brings you to Aeonaxy?
                                         </h3>
-                                        <p className="mt-4 text-gray-500">
+                                        <p className="mt-4 text-gray-500 text-sm md:text-base">
                                             Select the options that best
                                             describe you. Don't worry, you can
                                             explore other options later
                                         </p>
                                     </div>
-                                    <div className="flex items-center gap-16 px-20 mt-14">
-                                        <div className="border border-gray-300 p-10 rounded-md flex flex-col justify-center items-center">
+                                    <div className="flex md:flex-row flex-col items-center gap-8 md:gap-16 md:px-20 md:mt-14 mt-8">
+                                        <div className="border border-gray-300 p-3 md:p-10 rounded-md flex flex-col justify-center items-center">
                                             <img
                                                 className="w-60"
                                                 src={shareWork}
                                                 alt=""
                                             />
-                                            <p className="text-2xl font-bold text-center">
+                                            <p className="md:text-2xl text-lg font-bold text-center">
                                                 I'm a developer looking to share
                                                 my work
                                             </p>
@@ -335,13 +335,13 @@ const SignUp = () => {
                                                 className="w-6 h-6 mt-4"
                                             />
                                         </div>
-                                        <div className="border border-gray-300 p-10 rounded-md flex flex-col justify-center items-center">
+                                        <div className="border border-gray-300 p-3 md:p-10 rounded-md flex flex-col justify-center items-center">
                                             <img
                                                 className="w-60"
                                                 src={hire}
                                                 alt=""
                                             />
-                                            <p className="text-2xl font-bold text-center">
+                                            <p className="text-lg md:text-2xl font-bold text-center">
                                                 I'm looking to hire a developer
                                             </p>
                                             <input
@@ -352,13 +352,13 @@ const SignUp = () => {
                                                 className="w-6 h-6 mt-4"
                                             />
                                         </div>
-                                        <div className="border border-gray-300 p-10 rounded-md flex flex-col justify-center items-center">
+                                        <div className="border border-gray-300 p-3 md:p-10 rounded-md flex flex-col justify-center items-center">
                                             <img
                                                 className="w-60"
                                                 src={inspiration}
                                                 alt=""
                                             />
-                                            <p className="text-2xl font-bold text-center">
+                                            <p className="text-lg md:text-2xl font-bold text-center">
                                                 I'm looking for developer
                                                 inspiration
                                             </p>
@@ -373,7 +373,7 @@ const SignUp = () => {
                                     </div>
                                     <div className="flex justify-center items-center">
                                         <button
-                                            className="w-full bg-pink-600 text-white max-w-[15%] py-2 text-sm rounded-md mt-10"
+                                            className="w-full bg-pink-600 text-white max-w-[70%] md:max-w-[15%] py-2 text-sm rounded-md mt-10"
                                             type="submit"
                                         >
                                             Finish
