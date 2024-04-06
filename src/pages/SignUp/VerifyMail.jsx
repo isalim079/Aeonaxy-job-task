@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import Navbar from "../Navbar/Navbar";
 import message from "../../assets/message.png";
+import Footer from "../Footer/Footer";
 
 const VerifyMail = () => {
     return (
@@ -39,6 +40,7 @@ const VerifyMail = () => {
                     </span>
                 </p>
             </div>
+            <Footer />
         </div>
     );
 };

@@ -1,9 +1,13 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import { useState } from "react";
 import image from "../../assets/signUp.png";
-import CreateProfile from "./CreateProfile";
-import BringsToAeonaxy from "./BringsToAeonaxy";
+// import CreateProfile from "./CreateProfile";
+// import BringsToAeonaxy from "./BringsToAeonaxy";
 import VerifyMail from "./VerifyMail";
+import hire from "../../assets/hire.png";
+import shareWork from "../../assets/shareWork.png";
+import inspiration from "../../assets/inspiration.png";
+import { BiSolidCameraPlus } from "react-icons/bi";
 
 const SignUp = () => {
     const steps = ["signUp", "createProfile", "bringsToAeonaxy", "verifyMail"];
@@ -49,6 +53,43 @@ const SignUp = () => {
         setSignUpData(userData);
         handleNext();
     };
+
+    /* create profile data */
+    const handleProfileSubmit = (e) => {
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const profilePicture = form.get("profilePicture");
+        const location = form.get("location");
+
+        setSignUpData((prevData) => ({
+            ...prevData,
+            location,
+
+            profilePicture,
+        }));
+        handleNext();
+    };
+
+    /* brings to aeonaxy data */
+    const handleBrings = (e) => {
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const reasonForJoining1 = form.get("shareWork");
+        const reasonForJoining2 = form.get("hireDev");
+        const reasonForJoining3 = form.get("inspiration");
+        console.log(reasonForJoining1);
+        console.log(reasonForJoining2);
+        console.log(reasonForJoining3);
+
+        setSignUpData((prevData) => ({
+            ...prevData,
+            reasonForJoining1,
+            reasonForJoining2,
+            reasonForJoining3,
+        }));
+        handleNext();
+    };
+
     // console.log(signUpData);
 
     return (
@@ -58,6 +99,7 @@ const SignUp = () => {
                     activeSteps === 0 && "grid grid-cols-2 gap-20 h-screen"
                 }`}
             >
+                {/* sign up page right side */}
                 <div
                     className={`bg-[#F3D184] ${activeSteps !== 0 && "hidden"}`}
                 >
@@ -84,125 +126,268 @@ const SignUp = () => {
                         </p>
                     </div>
                     <div className={`${activeSteps === 0 && "mt-10"}`}>
-                        <form onSubmit={handleSubmit}>
-                            {activeSteps === 0 && (
-                                <div className="w-full max-w-[65%]">
-                                    {/* input fields */}
-                                    <div className="grid grid-cols-2 gap-8 ">
-                                        <div>
-                                            <label className="font-semibold">
-                                                Name
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                id="name"
-                                                className="bg-gray-100 rounded-md mt-1 pl-4 h-12 font-normal font-comicSans w-full block focus:outline-none focus:border-2 focus:border-gray-400"
-                                                placeholder="Enter your name"
-                                            />
-                                        </div>
-
-                                        <div>
-                                            <label className="font-semibold">
-                                                User
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="userName"
-                                                id="userName"
-                                                className="bg-gray-100 rounded-md mt-1 pl-4 h-12 font-normal font-comicSans w-full block focus:outline-none focus:border-2 focus:border-gray-400"
-                                                placeholder="Enter your user name"
-                                            />
-                                        </div>
-
-                                        <div className="col-span-2">
-                                            <label className="font-semibold">
-                                                Email
-                                            </label>
-                                            <input
-                                                type="email"
-                                                name="email"
-                                                id="email"
-                                                className="bg-gray-100 rounded-md mt-1 pl-4 h-12 font-normal font-comicSans w-full block focus:outline-none focus:border-2 focus:border-gray-400"
-                                                placeholder="Enter your email"
-                                            />
-                                        </div>
-
-                                        <div className="col-span-2">
-                                            <label className="font-semibold">
-                                                Password
-                                            </label>
-                                            <input
-                                                type="password"
-                                                name="password"
-                                                id="password"
-                                                className="bg-gray-100 rounded-md mt-1 pl-4 h-12 font-normal font-comicSans w-full block focus:outline-none focus:border-2 focus:border-gray-400"
-                                                placeholder="6+ characters"
-                                            />
-                                        </div>
-                                    </div>
-                                    {/* input fields ended */}
-
-                                    <div className="mt-4 flex items-start gap-3">
+                        {/* ---------------- sign up page form ---------- */}
+                        {activeSteps === 0 && (
+                            <form
+                                onSubmit={handleSubmit}
+                                className="w-full max-w-[65%]"
+                            >
+                                {/* input fields */}
+                                <div className="grid grid-cols-2 gap-8 ">
+                                    <div>
+                                        <label className="font-semibold">
+                                            Name
+                                        </label>
                                         <input
-                                            type="checkbox"
-                                            className=" w-8 h-8"
-                                            name="checkbox"
-                                            id="checkbox"
+                                            type="text"
+                                            name="name"
+                                            id="name"
+                                            className="bg-gray-100 rounded-md mt-1 pl-4 h-12 font-normal font-comicSans w-full block focus:outline-none focus:border-2 focus:border-gray-400"
+                                            placeholder="Enter your name"
                                         />
-                                        <p className="text-sm">
-                                            Creating an account means you're
-                                            okay with our{" "}
-                                            <span className="text-blue-500 cursor-pointer">
-                                                Terms of Service, Privacy Policy
-                                            </span>
-                                            , and our default{" "}
-                                            <span className="text-blue-500 cursor-pointer">
-                                                Notification Settings
-                                            </span>
-                                        </p>
                                     </div>
 
-                                    <div className="mt-4">
-                                        <button
-                                            type="submit"
-                                            className="w-full max-w-[50%] py-2 bg-pink-600 text-white rounded-md"
-                                            // onClick={handleNext}
-                                        >
-                                            Create Account
-                                        </button>
+                                    <div>
+                                        <label className="font-semibold">
+                                            User
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="userName"
+                                            id="userName"
+                                            className="bg-gray-100 rounded-md mt-1 pl-4 h-12 font-normal font-comicSans w-full block focus:outline-none focus:border-2 focus:border-gray-400"
+                                            placeholder="Enter your user name"
+                                        />
                                     </div>
 
-                                    <div className="mt-3 w-full max-w-[70%]">
-                                        <p className="text-xs text-gray-500">
-                                            This site is protected by reCAPTCHA
-                                            and the Google{" "}
-                                            <span className="text-blue-500 cursor-pointer">
-                                                Privacy Policy
-                                            </span>{" "}
-                                            and{" "}
-                                            <span className="text-blue-500 cursor-pointer">
-                                                Terms of Service
-                                            </span>{" "}
-                                            apply.
-                                        </p>
+                                    <div className="col-span-2">
+                                        <label className="font-semibold">
+                                            Email
+                                        </label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            id="email"
+                                            className="bg-gray-100 rounded-md mt-1 pl-4 h-12 font-normal font-comicSans w-full block focus:outline-none focus:border-2 focus:border-gray-400"
+                                            placeholder="Enter your email"
+                                        />
+                                    </div>
+
+                                    <div className="col-span-2">
+                                        <label className="font-semibold">
+                                            Password
+                                        </label>
+                                        <input
+                                            type="password"
+                                            name="password"
+                                            id="password"
+                                            className="bg-gray-100 rounded-md mt-1 pl-4 h-12 font-normal font-comicSans w-full block focus:outline-none focus:border-2 focus:border-gray-400"
+                                            placeholder="6+ characters"
+                                        />
                                     </div>
                                 </div>
-                            )}
+                                {/* input fields ended */}
 
-                            {activeSteps === 1 && (
-                                <CreateProfile
-                                    handleNext={handleNext}
-                                    signUpData={signUpData}
-                                />
-                            )}
+                                <div className="mt-4 flex items-start gap-3">
+                                    <input
+                                        type="checkbox"
+                                        className=" w-8 h-8"
+                                        name="checkbox"
+                                        id="checkbox"
+                                    />
+                                    <p className="text-sm">
+                                        Creating an account means you're okay
+                                        with our{" "}
+                                        <span className="text-blue-500 cursor-pointer">
+                                            Terms of Service, Privacy Policy
+                                        </span>
+                                        , and our default{" "}
+                                        <span className="text-blue-500 cursor-pointer">
+                                            Notification Settings
+                                        </span>
+                                    </p>
+                                </div>
 
-                            {activeSteps === 2 && (
-                                <BringsToAeonaxy handleNext={handleNext} />
-                            )}
+                                <div className="mt-4">
+                                    <button
+                                        type="submit"
+                                        className="w-full max-w-[50%] py-2 bg-pink-600 text-white rounded-md"
+                                        // onClick={handleNext}
+                                    >
+                                        Create Account
+                                    </button>
+                                </div>
 
-                            {activeSteps === 3 && <VerifyMail />}
-                        </form>
+                                <div className="mt-3 w-full max-w-[70%]">
+                                    <p className="text-xs text-gray-500">
+                                        This site is protected by reCAPTCHA and
+                                        the Google{" "}
+                                        <span className="text-blue-500 cursor-pointer">
+                                            Privacy Policy
+                                        </span>{" "}
+                                        and{" "}
+                                        <span className="text-blue-500 cursor-pointer">
+                                            Terms of Service
+                                        </span>{" "}
+                                        apply.
+                                    </p>
+                                </div>
+                            </form>
+                        )}
+                        {/* ---------- sign up page form ended ------------ */}
+
+                        {/* ----------- create profile form ------------ */}
+
+                        {activeSteps === 1 && (
+                            <form onSubmit={handleProfileSubmit}>
+                                <div className="flex justify-center items-center h-screen">
+                                    <div>
+                                        <div>
+                                            <h1 className="text-4xl font-semibold">
+                                                Welcome! Let's create your
+                                                profile
+                                            </h1>
+                                            <p className="text-gray-500 mt-4">
+                                                Let others get to know you
+                                                better! You can do these later
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <h3 className="text-xl font-bold mt-10 mb-4">
+                                                Add an avatar
+                                            </h3>
+                                            <div className="flex items-center space-x-10">
+                                                <div className="border-2 border-dashed border-gray-400 w-40 h-40 rounded-full flex justify-center items-center">
+                                                    <BiSolidCameraPlus className="text-4xl text-gray-500" />
+                                                </div>
+                                                <div className="relative">
+                                                    <input
+                                                        className="z-10 flex opacity-0"
+                                                        type="file"
+                                                        name="profilePicture"
+                                                        id="profilePicture"
+                                                    />
+                                                    <button className="absolute left-0 top-0 -z-10 font-semibold bg-gray-300 px-4 py-2 rounded-md">
+                                                        Choose Image
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h3 className="mt-20 text-xl font-bold mb-2">
+                                                Add your location
+                                            </h3>
+                                            <input
+                                                type="text"
+                                                name="location"
+                                                id="location"
+                                                className="bg-gray-100 rounded-md mt-1 pl-4 h-12 font-normal font-comicSans w-full block focus:outline-none focus:border-2 focus:border-gray-400"
+                                                placeholder="Enter a location"
+                                            />
+                                        </div>
+                                        <div>
+                                            <button
+                                                className="bg-pink-600 py-2 rounded-md mt-10 text-sm text-white w-full max-w-[40%]"
+                                                type="submit"
+                                            >
+                                                Next
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        )}
+
+                        {/* -------------- create profile form ended ----------------- */}
+
+                        {/* -------------- Brings to aeonaxy form --------------- */}
+
+                        {activeSteps === 2 && (
+                            <form
+                                className="flex justify-center items-center my-10"
+                                onSubmit={handleBrings}
+                            >
+                                <div>
+                                    <div className="flex flex-col justify-center items-center">
+                                        <h3 className="text-4xl font-semibold">
+                                            What brings you to Aeonaxy?
+                                        </h3>
+                                        <p className="mt-4 text-gray-500">
+                                            Select the options that best
+                                            describe you. Don't worry, you can
+                                            explore other options later
+                                        </p>
+                                    </div>
+                                    <div className="flex items-center gap-16 px-20 mt-14">
+                                        <div className="border border-gray-300 p-10 rounded-md flex flex-col justify-center items-center">
+                                            <img
+                                                className="w-60"
+                                                src={shareWork}
+                                                alt=""
+                                            />
+                                            <p className="text-2xl font-bold text-center">
+                                                I'm a developer looking to share
+                                                my work
+                                            </p>
+                                            <input
+                                                type="radio"
+                                                name="shareWork"
+                                                value="shareWork"
+                                                id="shareWork"
+                                                className="w-6 h-6 mt-4"
+                                            />
+                                        </div>
+                                        <div className="border border-gray-300 p-10 rounded-md flex flex-col justify-center items-center">
+                                            <img
+                                                className="w-60"
+                                                src={hire}
+                                                alt=""
+                                            />
+                                            <p className="text-2xl font-bold text-center">
+                                                I'm looking to hire a developer
+                                            </p>
+                                            <input
+                                                type="radio"
+                                                name="hireDev"
+                                                value="hireDev"
+                                                id="hireDev"
+                                                className="w-6 h-6 mt-4"
+                                            />
+                                        </div>
+                                        <div className="border border-gray-300 p-10 rounded-md flex flex-col justify-center items-center">
+                                            <img
+                                                className="w-60"
+                                                src={inspiration}
+                                                alt=""
+                                            />
+                                            <p className="text-2xl font-bold text-center">
+                                                I'm looking for developer
+                                                inspiration
+                                            </p>
+                                            <input
+                                                type="radio"
+                                                name="inspiration"
+                                                value="inspiration"
+                                                id="inspiration"
+                                                className="w-6 h-6 mt-4"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="flex justify-center items-center">
+                                        <button
+                                            className="w-full bg-pink-600 text-white max-w-[15%] py-2 text-sm rounded-md mt-10"
+                                            type="submit"
+                                        >
+                                            Finish
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        )}
+
+                        {/* ------------- Brings to aeonaxy form ended ---------------- */}
+
+                        {activeSteps === 3 && <VerifyMail />}
                     </div>
                 </div>
             </div>
