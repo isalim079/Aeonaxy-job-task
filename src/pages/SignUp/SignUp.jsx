@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/heading-has-content */
 import { useState } from "react";
 import image from "../../assets/signUp.png";
