@@ -99,7 +99,7 @@ const SignUp = () => {
             >
                 {/* sign up page right side */}
                 <div
-                    className={`bg-[#F3D184] md:block hidden ${activeSteps !== 0 && "hidden"}`}
+                    className={`bg-[#F3D184] ${activeSteps === 0 && 'md:block hidden'} ${activeSteps !== 0 && "hidden"}`}
                 >
                     <div className="pl-16 pt-10">
                         <p className="text-2xl  text-[#7c6735]">Aeonaxy</p>
@@ -238,25 +238,25 @@ const SignUp = () => {
 
                         {activeSteps === 1 && (
                             <form onSubmit={handleProfileSubmit}>
-                                <div className="flex justify-center items-center h-screen">
+                                <div className="md:flex justify-center items-center md:h-screen my-10 md:my-0 px-3 md:px-0">
                                     <div>
                                         <div>
-                                            <h1 className="text-4xl font-semibold">
+                                            <h1 className="text-2xl md:text-4xl font-semibold">
                                                 Welcome! Let's create your
                                                 profile
                                             </h1>
-                                            <p className="text-gray-500 mt-4">
+                                            <p className="text-gray-500 mt-4 text-sm md:text-base">
                                                 Let others get to know you
                                                 better! You can do these later
                                             </p>
                                         </div>
                                         <div>
-                                            <h3 className="text-xl font-bold mt-10 mb-4">
+                                            <h3 className="md:text-xl text-lg font-bold mt-5 md:mt-10 mb-4">
                                                 Add an avatar
                                             </h3>
-                                            <div className="flex items-center space-x-10">
-                                                <div className="border-2 border-dashed border-gray-400 w-40 h-40 rounded-full flex justify-center items-center">
-                                                    <BiSolidCameraPlus className="text-4xl text-gray-500" />
+                                            <div className="flex md:flex-row flex-col items-center space-x-10">
+                                                <div className="border-2 border-dashed border-gray-400 w-24 h-24 md:w-40 md:h-40 rounded-full flex justify-center items-center">
+                                                    <BiSolidCameraPlus className="text-2xl md:text-4xl text-gray-500" />
                                                 </div>
                                                 <div className="relative">
                                                     <input
@@ -265,27 +265,27 @@ const SignUp = () => {
                                                         name="profilePicture"
                                                         id="profilePicture"
                                                     />
-                                                    <button className="absolute left-0 top-0 -z-10 font-semibold bg-gray-300 px-4 py-2 rounded-md">
+                                                    <button className="absolute left-[27%] mt-4 md:mt-0 md:left-0 top-0 -z-10 text-xs md:text-base md:font-semibold bg-gray-300 px-4 py-2 rounded-md">
                                                         Choose Image
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div>
-                                            <h3 className="mt-20 text-xl font-bold mb-2">
+                                            <h3 className="md:mt-20 mt-10 text-lg md:text-xl font-bold mb-2">
                                                 Add your location
                                             </h3>
                                             <input
                                                 type="text"
                                                 name="location"
                                                 id="location"
-                                                className="bg-gray-100 rounded-md mt-1 pl-4 h-12 font-normal font-comicSans w-full block focus:outline-none focus:border-2 focus:border-gray-400"
+                                                className="bg-gray-100 rounded-md mt-1 pl-4 h-12 font-normal font-comicSans md:w-full block focus:outline-none focus:border-2 focus:border-gray-400"
                                                 placeholder="Enter a location"
                                             />
                                         </div>
                                         <div>
                                             <button
-                                                className="bg-pink-600 py-2 rounded-md mt-10 text-sm text-white w-full max-w-[40%]"
+                                                className="bg-pink-600 py-2 rounded-md mt-5 md:mt-10 text-sm text-white w-full max-w-[40%]"
                                                 type="submit"
                                             >
                                                 Next
